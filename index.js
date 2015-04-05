@@ -68,7 +68,7 @@ module.exports = function (o) {
     return Uglify.minify(src, extend({
       fromString: true,
       inSourceMap: map,
-      outSourceMap: convert.mapFileCommentRegex.match(src).pop()
+      outSourceMap: src.match(convert.mapFileCommentRegex).pop()
     }, o));
   }
 };
