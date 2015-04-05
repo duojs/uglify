@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/duojs/uglify.svg)](https://travis-ci.org/duojs/uglify)
+
 # duo-uglify
 
 > An uglify plugin for use in duo builds
