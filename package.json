@@ -1,7 +1,7 @@
 {
   "name": "duo-uglify",
   "description": "A duo alternate plugin for compressing a JS build",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "repository": "duojs/uglify",
   "dependencies": {
     "convert-source-map": "^1.0.0",
