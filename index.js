@@ -19,17 +19,14 @@ var Uglify = require('uglify-js');
 module.exports = function (o) {
   debug('initializing', o);
 
-  uglify.alternate = true;
-  return uglify;
-
-  function uglify(build, entry) {
+  return alternate(function uglify(build, entry) {
     if (entry.type !== 'js') return;
 
     var results = minify(entry.duo.sourceMap(), build);
 
     build.code = results.code;
     build.map = results.map;
-  }
+  });
 
   function minify(sourceMap, build) {
     if (!sourceMap)                  return none(build);
@@ -72,3 +69,8 @@ module.exports = function (o) {
     }, o));
   }
 };
+
+function alternate(fn) {
+  fn.alternate = true;
+  return fn;
+}
