@@ -61,11 +61,13 @@ module.exports = function (o) {
     debug('external source-map');
     var src = build.code;
     var map = convert.fromJSON(build.map).toObject();
+    var comment = build.code.match(convert.mapFileCommentRegex).pop();
+    var mapFile = comment.split('=').pop();
 
     return Uglify.minify(src, extend({
       fromString: true,
       inSourceMap: map,
-      outSourceMap: src.match(convert.mapFileCommentRegex).pop()
+      outSourceMap: mapFile
     }, o));
   }
 };
