@@ -29,9 +29,9 @@ module.exports = function (o) {
   });
 
   function minify(sourceMap, build) {
-    if (!sourceMap)                  return none(build);
+    if (!sourceMap) return none(build);
     else if (sourceMap === 'inline') return inline(build);
-    else                             return external(build);
+    else return external(build);
   }
 
   function none(build) {

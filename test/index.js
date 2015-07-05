@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 
 /**
  * Module dependencies.
@@ -6,7 +7,6 @@
 var assert = require('assert');
 var Duo = require('duo');
 var uglify = require('..');
-var vm = require('vm');
 
 /**
  * Tests.
@@ -62,17 +62,4 @@ function build(fixture, options) {
     .cache(false)
     .entry('fixtures/' + fixture + '.js')
     .use(uglify(options));
-}
-
-/**
- * Evaluates code compiled by duo.
- *
- * @param {String} src
- * @param {Object} [ctx]
- * @returns {Object}
- */
-
-function evaluate(src, ctx) {
-  ctx = ctx || { console: console };
-  return vm.runInNewContext(src, ctx)(1);
 }
